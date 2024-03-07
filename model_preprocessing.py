@@ -26,3 +26,11 @@ class PrcoessModel:
 
         return pd.concat([processed_numerical, processed_categorical], axis=1)
   
+
+if __name__ == '__main__':
+    preprocessor_model = PrcoessModel()
+    processed_train_data = preprocessor_model.process_data('./data/train')
+    processed_test_data = preprocessor_model.process_data('./data/test')
+
+    processed_train_data.to_csv('./data/train/train.csv')
+    processed_train_data.to_csv('./data/test/test.csv')

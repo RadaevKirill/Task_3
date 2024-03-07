@@ -18,14 +18,14 @@ def generate_data(num_days: int, procent_test: float):
         total.append(day)
     train, test = train_test_split(pd.DataFrame(total,
                                    columns=['Temperature', 'Sky', 'Wind', 'Direction', 'Pressure']),
-                                   test_size=0.2)
-    train.to_csv('./data/train/train.csv')
-    test.to_csv('./data/test/test.csv')
+                                   test_size=procent_test)
+    train.to_csv('./data/train/train.csv', index=False)
+    test.to_csv('./data/test/test.csv', index=False)
 
 
 if __name__ == '__main__':
     procent_test = 0.2
-    num_days = 30
+    num_days = 1000
 
     os.makedirs('data', exist_ok=True)
     os.makedirs('data/train', exist_ok=True)

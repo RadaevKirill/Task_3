@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 
-class PrcoessModel:
+class ProcessModel:
   def __init__(self):
     self.scaler = StandardScaler()
     self.encoder = OneHotEncoder()
@@ -28,9 +28,9 @@ class PrcoessModel:
   
 
 if __name__ == '__main__':
-    preprocessor_model = PrcoessModel()
+    preprocessor_model = ProcessModel()
     processed_train_data = preprocessor_model.process_data('./data/train')
     processed_test_data = preprocessor_model.process_data('./data/test')
 
-    processed_train_data.to_csv('./data/train/train.csv')
-    processed_train_data.to_csv('./data/test/test.csv')
+    processed_train_data.to_csv('./data/train/train.csv', index=False)
+    processed_test_data.to_csv('./data/test/test.csv', index=False)
